@@ -111,7 +111,7 @@ export default function SetupScreen({ onStart }) {
       <div className="setup-inner">
         {/* Header */}
         <header className="setup-header">
-          <div className="logo-badge">🃏</div>
+          <div className="logo-badge"><img src="/logo.png" alt="Chaos Cards" /></div>
           <h1 className="setup-title">
             <span className="gradient-text">Chaos</span>
             <span className="setup-title-white"> Cards</span>
