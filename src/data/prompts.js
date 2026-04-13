@@ -188,4 +188,4 @@ export const ALL_MODES = [
   },
 ];
 
-export const DEFAULT_EXTRA_PEOPLE = ['Dom', 'Erika', 'Poppy', 'Ursula'];
+export const DEFAULT_EXTRA_PEOPLE = [''];
