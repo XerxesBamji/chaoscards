@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px 8px;
+  padding: calc(16px + env(safe-area-inset-top)) 20px 8px;
   cursor: default;
 }
 
@@ -257,7 +257,7 @@
 .game-footer {
   position: relative;
   z-index: 10;
-  padding: 12px 20px 24px;
+  padding: 12px 20px calc(24px + env(safe-area-inset-bottom));
   cursor: default;
 }
 
@@ -322,7 +322,7 @@
   background: #1a1a27;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  padding: 20px 24px 40px;
+  padding: 20px 24px calc(40px + env(safe-area-inset-bottom));
   animation: slideUp 0.3s cubic-bezier(0.34, 1.2, 0.64, 1) both;
   display: flex;
   flex-direction: column;

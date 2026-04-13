@@ -135,7 +135,7 @@
   z-index: 1;
   max-width: 480px;
   margin: 0 auto;
-  padding: 32px 20px 40px;
+  padding: calc(32px + env(safe-area-inset-top)) 20px calc(40px + env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   gap: 20px;
