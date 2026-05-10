@@ -69,6 +69,7 @@ export function buildDeck(mode, players, extraPeople, useExtra, customPrompts = 
       ...PROMPTS.finalboss,
     ];
   } else {
+    // lukesbday, normal, flirty, chaos, finalboss — all map directly
     templates = PROMPTS[mode] || PROMPTS.normal;
   }
 

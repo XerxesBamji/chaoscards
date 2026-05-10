@@ -159,12 +159,13 @@ export default function SetupScreen({ onStart }) {
               <button
                 key={mode.id}
                 id={`mode-${mode.id}`}
-                className={`mode-card ${selectedMode === mode.id ? 'mode-card--active' : ''} ${mode.id === 'ultrachaos' ? 'mode-card--ultra' : ''}`}
+                className={`mode-card ${selectedMode === mode.id ? 'mode-card--active' : ''} ${mode.id === 'ultrachaos' ? 'mode-card--ultra' : ''} ${mode.limited ? 'mode-card--limited' : ''}`}
                 onClick={() => setSelectedMode(mode.id)}
                 style={{ '--mode-gradient': mode.gradient, '--mode-color': mode.color }}
                 aria-pressed={selectedMode === mode.id}
               >
-                <span className="mode-emoji">{mode.emoji}</span>
+                {mode.limited && <span className="limited-badge">🎉 LIMITED</span>}
+                <span className={`mode-emoji ${mode.limited ? 'mode-emoji--birthday' : ''}`}>{mode.emoji}</span>
                 <span className="mode-label">{mode.label}</span>
                 <span className="mode-desc">{mode.description}</span>
                 {selectedMode === mode.id && <div className="mode-active-ring" />}

@@ -836,3 +836,102 @@
 .remove-prompt-btn:hover {
   color: #ef4444;
 }
+
+/* ===================== LUKE'S BDAY LIMITED EDITION ===================== */
+
+/* Full-width card like Ultra Chaos */
+.mode-card--limited {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-color: rgba(245, 158, 11, 0.45);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.07) 0%, rgba(236, 72, 153, 0.07) 100%);
+  position: relative;
+  overflow: visible;
+}
+
+/* Shimmering golden border glow */
+.mode-card--limited::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-lukesbday);
+  background-size: 300% 100%;
+  animation: limited-shimmer 3s linear infinite;
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mode-card--limited:hover::after {
+  opacity: 0.55;
+}
+
+.mode-card--limited.mode-card--active::after {
+  opacity: 0.7;
+}
+
+/* Stack label + desc vertically inside the row layout */
+.mode-card--limited .mode-label,
+.mode-card--limited .mode-desc {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.mode-card--limited .mode-emoji {
+  position: relative;
+  z-index: 1;
+}
+
+/* Birthday emoji sparkle */
+.mode-emoji--birthday {
+  animation: birthday-sparkle 2s ease-in-out infinite;
+  font-size: 2rem !important;
+}
+
+/* "LIMITED" pill badge */
+.limited-badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #f59e0b, #ef4444, #ec4899, #f59e0b);
+  background-size: 300% 100%;
+  animation: limited-shimmer 2.5s linear infinite;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.5);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Text group next to emoji in row layout */
+.mode-card--limited .mode-label {
+  font-size: 1rem;
+}
+
+.mode-card--limited .mode-desc {
+  font-size: 0.78rem;
+  color: rgba(245, 158, 11, 0.7);
+}
+
+/* Active state golden glow */
+.mode-card--limited.mode-card--active {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.25), 0 0 60px rgba(236, 72, 153, 0.1);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(236, 72, 153, 0.12) 100%);
+}
+
+.mode-card--limited.mode-card--active .mode-label {
+  color: #fbbf24;
+}
