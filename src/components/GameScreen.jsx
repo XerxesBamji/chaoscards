@@ -68,12 +68,8 @@ export default function GameScreen({ config, onBack }) {
       const nextIdx = index + 1;
 
       if (nextIdx >= totalCards) {
-        // Rebuild deck for another cycle
-        const newDeck = buildDeck(currentMode, players, extraPeople, useExtra, customPrompts);
-        setDeck(newDeck);
-        setIndex(0);
         setTotalSeen(prev => prev + totalCards);
-        setAnimState('in');
+        setShowEndScreen(true);
       } else {
         setIndex(nextIdx);
         setAnimState('in');
@@ -221,6 +217,41 @@ export default function GameScreen({ config, onBack }) {
           </div>
         </div>
       </footer>
+
+      {/* End Screen overlay */}
+      {showEndScreen && (
+        <div
+          className="menu-overlay"
+          role="dialog"
+          aria-label="Game over"
+          aria-modal="true"
+        >
+          <div className="menu-panel" onClick={e => e.stopPropagation()}>
+            <h2 className="menu-title">Game Over!</h2>
+            <div className="menu-section">
+              <p className="menu-section-label" style={{ textAlign: 'center', marginBottom: '20px', fontSize: '1.1rem', color: 'var(--text-secondary)' }}>
+                You've completed 30 prompts. What's next?
+              </p>
+            </div>
+
+            <button
+              className="menu-newgame-btn"
+              onClick={() => switchMode(currentMode)}
+              style={{ marginBottom: '12px' }}
+            >
+              🔄 Play Again ({currentMeta.label})
+            </button>
+
+            <button
+              className="menu-close-btn"
+              onClick={onBack}
+              style={{ background: 'rgba(255, 255, 255, 0.1)', color: '#fff' }}
+            >
+              🏠 Main Menu
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Settings menu overlay */}
       {showMenu && (

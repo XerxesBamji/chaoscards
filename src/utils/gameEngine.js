@@ -79,5 +79,6 @@ export function buildDeck(mode, players, extraPeople, useExtra, customPrompts = 
   }
 
   const shuffledTemplates = shuffle(templates);
-  return shuffledTemplates.map(t => fillPrompt(t, players, extraPeople, useExtra));
+  const limitedTemplates = shuffledTemplates.slice(0, 30);
+  return limitedTemplates.map(t => fillPrompt(t, players, extraPeople, useExtra));
 }
